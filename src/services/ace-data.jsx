@@ -1,5 +1,6 @@
 // Service Imports
 import { createSolarWindObject } from './solar-wind';
+import { createProtonElectronObject } from './electron-proton';
 // Constant Variables
 const BASE_URL = `https://services.swpc.noaa.gov/text`;
 const SWEPAM_ENDPOINT = `/ace-swepam.txt`;
@@ -30,8 +31,28 @@ export const getSolarWindObject = (setSolarWind) => {
 	);
 };
 
-export const getProtonElectronData = async () => {
-	return await getDataRequest(EPAM_ENDPOINT);
+export const getProtonElectronObject = (setProtonElectron) => {
+	let protonElectronPromise = new Promise(function(resolve, reject) {
+		let request = getDataRequest(EPAM_ENDPOINT);
+
+		if (request.length !== 0) {
+			resolve(request);
+		}
+		else {
+			reject("Failed to fetch data");
+		}
+	});
+
+	protonElectronPromise.then(
+		function(data) {
+			const parsedData = parseDataRequest(data);
+
+			setProtonElectron(createProtonElectronObject(parsedData));
+		},
+		function(error) {
+			console.log(error);
+		}
+	);
 };
 
 // Private Functions
