@@ -7,6 +7,7 @@ import './App.css';
 
 function App () {
   const [solarWind, setSolarWind] = useState([]);
+  
   useEffect(() => {
     getSolarWindObject(setSolarWind);
   }, []);
