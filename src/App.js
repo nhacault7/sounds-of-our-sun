@@ -1,3 +1,5 @@
+// Component Imports
+import SoundPlayer from './components/SoundPlayer';
 // Service Imports
 import { getSolarWindObject } from './services/ace-data';
 // Package Imports
@@ -7,13 +9,13 @@ import './App.css';
 
 function App () {
   const [solarWind, setSolarWind] = useState([]);
-  
+
   useEffect(() => {
     getSolarWindObject(setSolarWind);
   }, []);
 
   return (
-    <></>
+    <SoundPlayer />
   );
 }
 
