@@ -5,7 +5,10 @@ const EPAM_ENDPOINT = `ace-epam.txt`;
 
 // Public functions
 export const getSolarWindData = async () => {
-  return await getDataRequest(SWEPAM_ENDPOINT);
+  const data = await getDataRequest(SWEPAM_ENDPOINT)
+	const parsedData = parseDataRequest(data);
+
+	return parsedData;
 }
 
 export const getProtonElectronData = async () => {
@@ -20,4 +23,11 @@ const getDataRequest = async (endpoint) => {
 	);
 	
 	return await request.text();
+}
+
+const parseDataRequest = (rawData) => {
+	const rawDataArray = rawData.split("\n");
+	const dataArray = rawDataArray.filter(line => !line.includes("#") && !line.includes(":"));
+
+	return dataArray;
 }
