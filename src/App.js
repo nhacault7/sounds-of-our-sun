@@ -10,12 +10,28 @@ import './App.css';
 function App () {
   const [solarWind, setSolarWind] = useState([]);
 
+  const fetchData = () => {
+    try {
+      console.log("Fetching Solar Wind Data...");
+      getSolarWindObject(setSolarWind);
+    } catch (e) {
+      console.log("Failed to Aquire Solar Wind Data");
+      return;
+    }
+    console.log("Aquired Solar Wind Data");
+  }
+
   useEffect(() => {
-    getSolarWindObject(setSolarWind);
+    fetchData();
+    
+    const intervalId = setInterval(() => {
+      fetchData();
+    }, 60000);
+    return () => clearInterval(intervalId)
   }, []);
 
   return (
-    <SoundPlayer />
+    <SoundPlayer SolarWindData={solarWind} />
   );
 }
 

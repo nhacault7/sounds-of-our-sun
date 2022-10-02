@@ -1,7 +1,9 @@
 // Package Imports
 import { useState } from 'react'
 
-const SoundPlayer = () => {;
+const SoundPlayer = (props) => {;
+	const { SolarWindData } = props;
+
 	const [state, setState] = useState({
 		play: true
 	});
@@ -14,6 +16,7 @@ const SoundPlayer = () => {;
 		});
 
 		state.play ? audio.play() : audio.pause();
+		audio.loop = true;
 	};
 
 	return (
