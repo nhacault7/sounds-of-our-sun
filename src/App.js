@@ -43,9 +43,6 @@ function App () {
   const [volIntensityText, setVolIntensityText] = useState("");
   const [pitchOscText, setPitchOscText] = useState("");
 
-  // error supresser
-  volIntensityText = "";
-
   // Design Code By Patrick Hacault
   // Github: PatrickHacault
   let clicked = "";
@@ -255,6 +252,7 @@ function App () {
             </div>
             <div className="dataBox" id="dataBox4">
               <p>{pitchOscText ? pitchOscText : "000"}</p>
+              <p>{volIntensityText}</p>
             </div>
           </div>
           <div id="spacer2"></div>
