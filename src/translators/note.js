@@ -98,56 +98,60 @@ const HighNotes = [
 export const translateDataToNote = (data, pitchRange, type) => {
 	let output;
 	
-	if (pitchRange === "Low") {
-		const notesAvailable = 29;
-		const noteStep = data[118].Data[`${type}Range`].Range / notesAvailable;
-
-		let noteIndex = 0;
-		if (type === "BulkSpeed") {
-			noteIndex = ((data[118].Data[type] - 350) / noteStep).toFixed(0);
+	console.log(type);
+	if (type.length !== 0) {
+		console.log("test");
+		if (pitchRange === "Low") {
+			const notesAvailable = 29;
+			const noteStep = data[118].Data[`${type}Range`].Range / notesAvailable;
+	
+			let noteIndex = 0;
+			if (type === "BulkSpeed") {
+				noteIndex = ((data[118].Data[type] - 350) / noteStep).toFixed(0);
+			}
+			else if (type === "IonTemperature") {
+				noteIndex = ((data[118].Data[type] - 1.0E+04) / noteStep).toFixed(0);
+			}
+			else if (type === "ProtonDensity") {
+				noteIndex = ((data[118].Data[type] - 0.1) / noteStep).toFixed(0) - 1;
+			}
+	
+			output = LowNotes[noteIndex]; 
+		} 
+		else if (pitchRange === "Mid") {
+			const notesAvailable = 30;
+			const noteStep = data[118].Data[`${type}Range`].Range / notesAvailable;
+	
+			let noteIndex = 0;
+			if (type === "BulkSpeed") {
+				noteIndex = ((data[118].Data[type] - 350) / noteStep).toFixed(0);
+			}
+			else if (type === "IonTemperature") {
+				noteIndex = ((data[118].Data[type] - 1.0E+04) / noteStep).toFixed(0);
+			}
+			else if (type === "ProtonDensity") {
+				noteIndex = ((data[118].Data[type] - 0.1) / noteStep).toFixed(0) - 1;
+			}
+	
+			output = MidNotes[noteIndex]; 
+		} 
+		else if (pitchRange === "High") {
+			const notesAvailable = 29;
+			const noteStep = data[118].Data[`${type}Range`].Range / notesAvailable;
+	
+			let noteIndex = 0;
+			if (type === "BulkSpeed") {
+				noteIndex = ((data[118].Data[type] - 350) / noteStep).toFixed(0);
+			}
+			else if (type === "IonTemperature") {
+				noteIndex = ((data[118].Data[type] - 1.0E+04) / noteStep).toFixed(0);
+			}
+			else if (type === "ProtonDensity") {
+				noteIndex = ((data[118].Data[type] - 0.1) / noteStep).toFixed(0) - 1;
+			}
+	
+			output = HighNotes[noteIndex]; 
 		}
-		else if (type === "IonTemperature") {
-			noteIndex = ((data[118].Data[type] - 1.0E+04) / noteStep).toFixed(0);
-		}
-		else if (type === "ProtonDensity") {
-			noteIndex = ((data[118].Data[type] - 0.1) / noteStep).toFixed(0) - 1;
-		}
-
-		output = LowNotes[noteIndex]; 
-	} 
-	else if (pitchRange === "Mid") {
-		const notesAvailable = 30;
-		const noteStep = data[118].Data[`${type}Range`].Range / notesAvailable;
-
-		let noteIndex = 0;
-		if (type === "BulkSpeed") {
-			noteIndex = ((data[118].Data[type] - 350) / noteStep).toFixed(0);
-		}
-		else if (type === "IonTemperature") {
-			noteIndex = ((data[118].Data[type] - 1.0E+04) / noteStep).toFixed(0);
-		}
-		else if (type === "ProtonDensity") {
-			noteIndex = ((data[118].Data[type] - 0.1) / noteStep).toFixed(0) - 1;
-		}
-
-		output = MidNotes[noteIndex]; 
-	} 
-	else if (pitchRange === "High") {
-		const notesAvailable = 29;
-		const noteStep = data[118].Data[`${type}Range`].Range / notesAvailable;
-
-		let noteIndex = 0;
-		if (type === "BulkSpeed") {
-			noteIndex = ((data[118].Data[type] - 350) / noteStep).toFixed(0);
-		}
-		else if (type === "IonTemperature") {
-			noteIndex = ((data[118].Data[type] - 1.0E+04) / noteStep).toFixed(0);
-		}
-		else if (type === "ProtonDensity") {
-			noteIndex = ((data[118].Data[type] - 0.1) / noteStep).toFixed(0) - 1;
-		}
-
-		output = HighNotes[noteIndex]; 
 	}
 
 	return output;
