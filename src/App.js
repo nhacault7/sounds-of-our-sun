@@ -43,6 +43,9 @@ function App () {
   const [volIntensityText, setVolIntensityText] = useState("");
   const [pitchOscText, setPitchOscText] = useState("");
 
+  // error supresser
+  volIntensityText = "";
+
   // Design Code By Patrick Hacault
   // Github: PatrickHacault
   let clicked = "";
