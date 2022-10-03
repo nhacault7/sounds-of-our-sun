@@ -31,7 +31,11 @@ function App () {
   }, []);
 
   return (
-    <SoundPlayer SolarWindData={solarWind} />
+    <>
+      <SoundPlayer Data={solarWind} ControlledProperty={"Low"} DataSelection={""} VolumeSelection={""} PlaybackSelection={""} />
+      <SoundPlayer Data={solarWind} ControlledProperty={"Mid"} DataSelection={""} VolumeSelection={""} PlaybackSelection={""} />
+      <SoundPlayer Data={solarWind} ControlledProperty={"High"} DataSelection={""} VolumeSelection={""} PlaybackSelection={""} />
+    </>
   );
 }
 

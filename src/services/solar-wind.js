@@ -21,15 +21,15 @@ export const createSolarWindObject = (parsedData) => {
 					},
 					BulkSpeed: `${filteredData[8]}`,
 					BulkSpeedRange: {
-						Low: 350,
-						High: 550,
-						Range: 550 - 350,
+						Low: 325,
+						High: 575,
+						Range: 575 - 325,
 					},
 					IonTemperature: `${filteredData[9]}`,
-					BulkSpeedRange: {
+					IonTemperatureRange: {
 						Low: 1.0E+04,
-						High: 1.0E+08,
-						Range: 1.0E+08 - 1.0E+04,
+						High: 1.0E+06,
+						Range: 1.0E+06 - 1.0E+04,
 					},
 				},
 			}
