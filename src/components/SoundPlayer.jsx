@@ -15,7 +15,7 @@ const SoundPlayer = (props) => {;
 
 	useEffect(() => {
 		if (Data.length !== 0) {
-			if (Data[118].Status === 9) {
+			if (Data[118].Status !== 9) {
 				let note;
 				if (ControlledProperty === "Low" || ControlledProperty === "Mid" || ControlledProperty === "High") {
 					note = (`Tremlo/${ControlledProperty}/${translateDataToNote(Data, ControlledProperty, DataSelection)}`);
