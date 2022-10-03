@@ -96,6 +96,8 @@ const HighNotes = [
 
 // Public functions
 export const translateDataToNote = (data, pitchRange, type) => {
+	let output;
+	
 	if (pitchRange === "Low") {
 		const notesAvailable = 29;
 		const noteStep = data[118].Data[`${type}Range`].Range / notesAvailable;
@@ -111,7 +113,7 @@ export const translateDataToNote = (data, pitchRange, type) => {
 			noteIndex = ((data[118].Data[type] - 0.1) / noteStep).toFixed(0) - 1;
 		}
 
-		return LowNotes[noteIndex]; 
+		output = LowNotes[noteIndex]; 
 	} 
 	else if (pitchRange === "Mid") {
 		const notesAvailable = 30;
@@ -128,7 +130,7 @@ export const translateDataToNote = (data, pitchRange, type) => {
 			noteIndex = ((data[118].Data[type] - 0.1) / noteStep).toFixed(0) - 1;
 		}
 
-		return MidNotes[noteIndex]; 
+		output = MidNotes[noteIndex]; 
 	} 
 	else if (pitchRange === "High") {
 		const notesAvailable = 29;
@@ -145,6 +147,8 @@ export const translateDataToNote = (data, pitchRange, type) => {
 			noteIndex = ((data[118].Data[type] - 0.1) / noteStep).toFixed(0) - 1;
 		}
 
-		return HighNotes[noteIndex]; 
+		output = HighNotes[noteIndex]; 
 	}
+
+	return output;
 }

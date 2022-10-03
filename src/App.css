@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,385 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+
+body {
+  background-color: black;
+  overflow: hidden;
+  /* background-image: url("https://www.transparenttextures.com/patterns/green-dust-and-scratches.png") */
 }
+
+.titleContainer {
+  position: absolute;
+  top: 2.5%;
+  left: 50%;
+  margin-left: -450px;
+  width: 900px;
+  height: 150px;
+  text-align: center;
+  font-size: 75px;
+  font-family: 'Silkscreen';
+  color: white;
+  text-shadow:1px 1px 10px #fff, 1px 1px 10px #ccc;
+  
+}
+
+.mainContainer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 25%;
+  left: 50%;
+  margin-left: -500px;
+  width: 1000px;
+  height: 600px;
+}
+
+#container1 {
+  width: 450px;
+  height: 600px;
+  display: block;
+}
+
+/* #container2 {
+  width: 450px;
+  height: 600px;
+  display: none;
+} */
+
+.dataContainer {
+  position: absolute;
+  top: 5%;
+  left: 2.5%;
+  width: 300px;
+  height: 400px;
+  background-color: blue;
+}
+
+/* .timelineContainer {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  margin-left: -375px;
+  width: 750px;
+  height: 100px;
+} */
+
+.selectorContainer {
+  position: absolute;
+  top: 50%;
+  margin-top: -225px;
+  right: 5%;
+  width: 337.5px;
+  height: 450px;
+  background-color: rgb(255, 210, 10);
+  border: 5px solid rgb(70, 70, 70);
+}
+
+#button1 {
+  width: 337.5px;
+  height: 90px;
+  display: block;
+  background-color: rgba(128, 128, 128, 0.8);
+  border: none;
+  font-size: 20px;
+  font-family: 'Silkscreen';
+  color: white;
+}
+
+#button2 {
+  width: 337.5px;
+  height: 90px;
+  display: block;
+  background-color: rgba(128, 128, 128, 0.7);
+  border: none;
+  font-size: 20px;
+  font-family: 'Silkscreen';
+  color: white;
+}
+
+#button3 {
+  width: 337.5px;
+  height: 90px;
+  display: block;
+  background-color: rgba(128, 128, 128, 0.6);
+  border: none;
+  font-size: 20px;
+  font-family: 'Silkscreen';
+  color: white;
+}
+
+#button4 {
+  width: 337.5px;
+  height: 90px;
+  display: block;
+  background-color: rgba(128, 128, 128, 0.5);
+  border: none;
+  font-size: 20px;
+  font-family: 'Silkscreen';
+  color: white;
+}
+
+#button5 {
+  width: 337.5px;
+  height: 90px;
+  display: block;
+  background-color: rgba(128, 128, 128, 0.4);
+  border: none;
+  font-size: 20px;
+  font-family: 'Silkscreen';
+  color: white;
+}
+
+#option1 {
+  width: 337.5px;
+  height: 90px;
+  display: none;
+  border: none;
+  font-size: 15px;
+  font-family: 'Silkscreen';
+}
+
+#option2 {
+  width: 337.5px;
+  height: 90px;
+  display: none;
+  border: none;
+  font-size: 15px;
+  font-family: 'Silkscreen';
+}
+
+#option3 {
+  width: 337.5px;
+  height: 90px;
+  display: none;
+  border: none;
+  font-size: 15px;
+  font-family: 'Silkscreen';
+}
+
+#option4 {
+  width: 337.5px;
+  height: 90px;
+  display: none;
+  border: none;
+  font-size: 15px;
+  font-family: 'Silkscreen';
+}
+
+#option5 {
+  width: 337.5px;
+  height: 90px;
+  display: none;
+  border: none;
+  font-size: 15px;
+  font-family: 'Silkscreen';
+}
+
+/* #dataText {
+  padding-top: 25px;
+  width: 300px;
+  height: 50px;
+  background-color: gray;
+  text-align: center;
+} */
+
+/* #compare {
+  width: 300px;
+  height: 50px;
+} */
+
+/* .scroll {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+} */
+
+/* .scroll a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+} */
+
+#button1:hover {
+  background-color: rgba(128, 128, 128, 0.75);
+}
+
+#button2:hover {
+  background-color: rgba(128, 128, 128, 0.65);
+}
+
+#button3:hover {
+  background-color: rgba(128, 128, 128, 0.55);
+}
+
+#button4:hover {
+  background-color: rgba(128, 128, 128, 0.45);
+}
+
+#button5:hover {
+  background-color: rgba(128, 128, 128, 0.35);
+}
+
+#option1:hover {
+  background-color: rgb(204, 204, 204);
+}
+
+#option2:hover {
+  background-color: rgb(204, 204, 204);
+}
+
+#option3:hover {
+  background-color: rgb(204, 204, 204);
+}
+
+#option4:hover {
+  background-color: rgb(204, 204, 204);
+}
+
+/* .vertical-menu {
+  width: 300px;
+  height: 450px;
+  overflow-y: auto;
+} */
+
+/* .vertical-menu a {
+  background-color: #eee; 
+  color: black; 
+  display: block; 
+  text-decoration: none;
+} */
+
+/* .vertical-menu a:hover {
+  background-color: #ccc; 
+} */
+
+/* .vertical-menu a.active {
+  background-color: #04AA6D; 
+  color: white;
+} */
+
+/* .vertical-menu::-webkit-scrollbar {
+  display: none;
+} */
+
+#volumeGraphic {
+  float: right;
+  margin-top: 96.25px;
+  width: 40px;
+  height: 407.5px;
+  background-color: rgba(80, 80, 80, 0.5);
+}
+
+.notch {
+  width: 35px;
+  height: 20px;
+  margin: auto;
+  margin-top: 2.5px;
+}
+
+#textBoxContainer {
+  float: left;
+  width: 150px;
+  height: 600px;
+}
+
+#dataBoxContainer {
+  float: left;
+  width: 250px;
+  height: 600px;
+}
+
+#box {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 125px;
+  background-color: gray;
+  margin-top: 20px;
+  font-size: 20px;
+  font-family: 'Silkscreen';
+  color: white;
+  background:
+  linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+  linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+  linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+  linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+  linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+  linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+  background-color: #131313;
+  background-size: 20px 20px;
+  border: 3px solid gray;
+}
+
+.dataBox {
+  text-align: center;
+  font-family: 'Segment7Standard';
+  font-weight: normal;
+  font-style: italic;
+  font-size: 40px;
+  color: #dfa70ee0;
+  /* text-shadow:1px 1px 10px #ffc014, 1px 1px 10px #ffc014a6; */
+  margin-left: 12.5px;
+  width: 225px;
+  height: 75px;
+  background-color: #202020e5;
+  border: 3px solid black;
+}
+
+.dataBox p {
+  margin: 20px;
+}
+
+#dataBox1 {
+  margin-top: 45px;
+}
+
+#dataBox2 {
+  margin-top: 70px;
+}
+
+#dataBox3 {
+  margin-top: 70px;}
+
+#dataBox4 {
+  margin-top: 70px;}
+
+.button {
+  background-color: blue;
+}
+
+.dot {
+  height: 1000px;
+  width: 1000px;
+  border-radius: 50%;
+  display: inline-block;
+  background-image: url("https://www.transparenttextures.com/patterns/green-dust-and-scratches.png");
+  animation: 10000ms ease-in-out infinite color-change;
+}
+
+@keyframes color-change {
+  0% {
+    background-color: #ffc014;
+    box-shadow: 0px 0px 40px 20px #ffc014;
+    background-size: 50%;
+  }
+  50% {
+    background-color: #dfa70ee0;
+    box-shadow: 0px 0px 35px 15px #dfa70ee0;
+    background-size: 49%;
+  }
+  100% {
+    background-color: #ffc014;
+    box-shadow: 0px 0px 40px 20px #ffc014;
+    background-size: 50%;
+  }
+}
+
+

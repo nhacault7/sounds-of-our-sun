@@ -1,5 +1,5 @@
 // Package Imports
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 // Translator Imports
 import { translateDataToNote } from './../translators/note';
 import { translateDataToVolume } from './../translators/volume';
@@ -8,20 +8,17 @@ import { transalateDataToPlayback } from '../translators/playback';
 const SoundPlayer = (props) => {;
 	const { Data, ControlledProperty, DataSelection, VolumeSelection, PlaybackSelection } = props;
 
-	const [state, setState] = useState({
-		play: true
-	});
-	const [note, setNote] = useState("Tremlo/Low/A1.ogg");
+	// const [note, setNote] = useState("");
 	const [volume, setVolume] = useState(1);
 	const [playback, setPlayback] = useState(1);
-	const [audio, setAudio] = useState(new Audio(note));
+	// const [audio, setAudio] = useState();
 
-	const togglePlay = () => {
+	useEffect(() => {
 		if (Data.length !== 0) {
 			if (Data[118].Status !== 9) {
+				let note;
 				if (ControlledProperty === "Low" || ControlledProperty === "Mid" || ControlledProperty === "High") {
-					setNote(`Tremlo/${ControlledProperty}/${translateDataToNote(Data, ControlledProperty, DataSelection)}`);
-					console.log(note);
+					note = (`Tremlo/${ControlledProperty}/${translateDataToNote(Data, ControlledProperty, DataSelection)}`);
 				}
 				else if (ControlledProperty === "Volume") {
 					setVolume(translateDataToVolume(Data, VolumeSelection));
@@ -29,27 +26,30 @@ const SoundPlayer = (props) => {;
 				else if (ControlledProperty === "Playback") {
 					setPlayback(transalateDataToPlayback(Data, PlaybackSelection));
 				}
+
+				const audio = (new Audio(note));
+				audio.volume = volume;
+				audio.playbackRate = playback;
+				audio.loop = true;
+				audio.play();
 			}
-		}		
-
-		setState({
-			play: !state.play
-		});
-
-		audio.src = note;
-		audio.volume = volume;
-		audio.playbackRate = playback;
-		audio.loop = true;
-		state.play ? audio.play() : audio.pause();
-	};
+			else {
+				console.log("Looks Like There Is Something Wrong With The ACE Data")
+			}
+		}
+		else {
+			console.log("Data Empty");
+		}
+	}, [DataSelection]);
 
 	return (
-		<div>
-			<button
-				id="audioBtn"
-				onClick={togglePlay}> {state.play ? "Play" : "Pause"}
-			</button>
-		</div>
+		// <div>
+		// 	<button
+		// 		id="audioBtn"
+		// 		onClick={togglePlay}> {state.play ? "Play" : "Pause"}
+		// 	</button>
+		// </div>
+		<></>
 	)
 }
 
