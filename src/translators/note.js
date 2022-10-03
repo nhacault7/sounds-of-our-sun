@@ -98,9 +98,7 @@ const HighNotes = [
 export const translateDataToNote = (data, pitchRange, type) => {
 	let output;
 	
-	console.log(type);
 	if (type.length !== 0) {
-		console.log("test");
 		if (pitchRange === "Low") {
 			const notesAvailable = 29;
 			const noteStep = data[118].Data[`${type}Range`].Range / notesAvailable;
